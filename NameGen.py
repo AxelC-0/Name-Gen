@@ -19,6 +19,11 @@ class Generate():
             :rtype: str
         """
 
+        # TO DO: Need to define which letters are allowed to appear near eachother
+            # Vowels that can appear together: A:I, A:E, A:U | E:A, E:E, E:I, E:O, E:U | 
+            #                                  I:A, I:E, I:O, I:U | O:A, O:I, O:O, O:U | 
+            #                                  U:A, U:E, U:I, U:O, U:U
+
 class Construct():
 
     def noun_verb():
