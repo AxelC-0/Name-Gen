@@ -47,6 +47,19 @@ class Generate():
 
         # random number to determine positioning of vowels and consonants, 
         # then random number deciding which letters its going to place there
+        randomlength = random.randrange(2, 8)
+        word_skel = []
+        for idx in range(randomlength):
+            word_skel.append(random.randrange(1, 10))
+            print (word_skel)
+        for idx in range(len(word_skel)):
+            if idx % 2 != 0:
+                word_skel[idx] = Consonants[random.randrange(1, 21)]
+            else:
+                word_skel[idx] = Vowels[random.randrange(1, 5)]
+        
+        word = "".join(word_skel)
+        print (word)
 
 
 class Construct():
