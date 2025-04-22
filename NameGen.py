@@ -5,6 +5,14 @@ import random
 
 
 
+def main():
+    
+    version = ".1"
+    print (f"Hello! Welcome to the Name GEN v{version}")
+    print ("----====----====----====----====----====")
+    Generate.from_the_letters()
+
+
 class Generate():
 
     def from_the_letters():
@@ -23,6 +31,23 @@ class Generate():
             # Vowels that can appear together: A:I, A:E, A:U | E:A, E:E, E:I, E:O, E:U | 
             #                                  I:A, I:E, I:O, I:U | O:A, O:I, O:O, O:U | 
             #                                  U:A, U:E, U:I, U:O, U:U
+            # Consonant inclusions: B:H, B:J, B:K, B:L, B:M, B:N, B:R, B:V, B:Y, B:Z
+            # Consonant exclusions:
+            #                      B:C, B:D, B:G, B:P, B:Q, B:S, B:T, B:W, B:X, 
+            # General Rules: Use double letters springly (less weight)
+            #                Y and H add flavor (less weight)
+
+        Vowels = ["A", "E", "I", "O", "U"]
+        Consonants = ["B", "C", "D", "F", "G", "J", "H", "K", "L", "M", "N", "P", "Q", "R", "S", "T", 
+                      "V", "W",  "X", "Y", "Z"]
+        Holding = []
+        Length = random.randint(2, 8)
+        print (Length)
+        print (random.randrange(2, 8))
+
+        # random number to determine positioning of vowels and consonants, 
+        # then random number deciding which letters its going to place there
+
 
 class Construct():
 
@@ -58,3 +83,12 @@ class Construct():
             Elaboration: Modifier words added to names to distinguish them from other similar names, 
                         or to add distinction in the form of adjectives
             """
+        
+        # Conflation:
+        # simplification:
+        # Elaboraton: Heim, Hold, Gard, Mere, Moor, etc. 
+
+
+
+if __name__ == "__main__":
+    main()
