@@ -86,7 +86,7 @@ class Construct():
     "fall", "helm", "reach", "mere", "forge", "rock", "holdt", "run", "watch", "march",
     "shade", "wood", "vale", "water", "haven", "field", "rest", "hold", "pine", "moor",
     "deep", "port", "vale", "watch", "hollow", "spear", "shade", "gate", "mere", "spire",
-    "moor", "reach", "watch", "mere", "wrath", "top", "rest", "stone", "reach", "field"]
+    "moor", "reach", "watch", "mere", "wrath", "top", "rest", "stone", "reach", "field", "Wyrm", "Sky", "Crow", "Blight"]
         
         verbs = ["run", "walk", "eat", "drink", "sleep", "write", "read", "speak", "listen", "see",
     "hear", "make", "do", "go", "come", "have", "be", "know", "think", "take",
@@ -97,7 +97,7 @@ class Construct():
     "Red", "Moon", "Drift", "Bright", "Gold", "Thorn", "Hollow",
     "Dark", "Ember", "Skull", "Mist", "Rime", "Fall", "Sun", "Brim", "Night", "Gren",
     "Oak", "Steel", "Fallow", "Howl", "Crag", "Fire", "Dust",
-    "Ice", "Thunder", "Wyrm", "Sky", "Crow", "Blight"]
+    "Ice", "Thunder"]
         
         #chosenNoun = nouns[random.randrange()]
         #chosenVerb = verbs[random.randrange()]
@@ -134,7 +134,18 @@ class Construct():
             #if certain number:
         # planning
                     # run rng -> if certain number: it will run a letter change and select random letter combo next to eachother
-                        # nested if second rng run: it will decide whether it will conflate, or simplify, or remove
+        selection = random.randrange(0, 1)
+
+        if selection == 0:
+            modification = random.randrange(0, 2)
+            if modification == 0:
+                # conflate
+            elif modification == 1:
+            # simplify
+            elif modification == 2:
+            # remove
+        elif seleciton == 1:
+            # elaboration            # nested if second rng run: it will decide whether it will conflate, or simplify, or remove
                     # else: it will be elaboration
 
             #    conflate
