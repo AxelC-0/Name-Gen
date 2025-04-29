@@ -7,10 +7,11 @@ import random
 
 def main():
     
-    version = ".1"
+    version = ".2"
     print (f"Hello! Welcome to the Name GEN v{version}")
     print ("----====----====----====----====----====")
     Generate.from_the_letters()
+    Construct.noun_verb()
 
 
 class Generate():
@@ -76,6 +77,38 @@ class Construct():
         :type verb: list
         """
 
+
+        nouns = ["dog", "cat", "car", "house", "tree", "book", "computer", "phone", "table", "chair",
+    "man", "woman", "child", "friend", "teacher", "student", "city", "country", "school", "job",
+    "water", "food", "music", "movie", "game", "apple", "banana", "shirt", "shoe", "bag",
+    "money", "time", "day", "night", "year", "road", "river", "mountain", "ocean", "sun",
+    "moon", "star", "door", "window", "room", "family", "team", "store", "train", "plane", 
+    "fall", "helm", "reach", "mere", "forge", "rock", "holdt", "run", "watch", "march",
+    "shade", "wood", "vale", "water", "haven", "field", "rest", "hold", "pine", "moor",
+    "deep", "port", "vale", "watch", "hollow", "spear", "shade", "gate", "mere", "spire",
+    "moor", "reach", "watch", "mere", "wrath", "top", "rest", "stone", "reach", "field"]
+        
+        verbs = ["run", "walk", "eat", "drink", "sleep", "write", "read", "speak", "listen", "see",
+    "hear", "make", "do", "go", "come", "have", "be", "know", "think", "take",
+    "give", "work", "play", "study", "learn", "drive", "ride", "buy", "sell", "build",
+    "cook", "clean", "watch", "open", "close", "start", "stop", "jump", "sit", "stand",
+    "grow", "draw", "paint", "sing", "dance", "teach", "help", "move", "throw", "catch", 
+    "Dagger", "Wind", "Storm", "Shadow", "Iron", "Raven", "Frost",
+    "Red", "Moon", "Drift", "Bright", "Gold", "Thorn", "Hollow",
+    "Dark", "Ember", "Skull", "Mist", "Rime", "Fall", "Sun", "Brim", "Night", "Gren",
+    "Oak", "Steel", "Fallow", "Howl", "Crag", "Fire", "Dust",
+    "Ice", "Thunder", "Wyrm", "Sky", "Crow", "Blight"]
+        
+        #chosenNoun = nouns[random.randrange()]
+        #chosenVerb = verbs[random.randrange()]
+        chosenNoun = random.choice(nouns)
+        chosenVerb = random.choice(verbs)
+        print(chosenVerb)
+        constructedWord = chosenNoun + chosenVerb
+        print (constructedWord)
+        return constructedWord
+
+
     def adj_noun():
 
         """Will construct names based on an adjective-noun relationship
@@ -98,8 +131,21 @@ class Construct():
             """
         
         # Conflation:
+            #if certain number:
+        # planning
+                    # run rng -> if certain number: it will run a letter change and select random letter combo next to eachother
+                        # nested if second rng run: it will decide whether it will conflate, or simplify, or remove
+                    # else: it will be elaboration
+
+            #    conflate
+            #elseif different number:
+            #    simplify
+            #else: 
+            #elaborate
         # simplification:
         # Elaboraton: Heim, Hold, Gard, Mere, Moor, etc. 
+
+        #constructedWord = 
 
 
 
