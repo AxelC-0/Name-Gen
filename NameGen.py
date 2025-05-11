@@ -1,5 +1,6 @@
 import math
 import random
+import time
 
 
 
@@ -10,8 +11,19 @@ def main():
     version = ".2"
     print (f"Hello! Welcome to the Name GEN v{version}")
     print ("----====----====----====----====----====")
-    Generate.from_the_letters()
-    Construct.age(Construct.noun_verb())
+    ask = input ("Would you like to randomly GENERATE a name, or CONSTRUCT one? >> ").strip().lower()
+
+    if ask == "generate":
+
+        Generate.from_the_letters()
+    elif ask == "construct":
+
+        secask = input ("Cool! There are a few opitons when it  comes to starting. \n \nYou can start with a NOUN-VERB, or an ADJ-NOUN base?"
+                        "Which would you like to start with? " 
+                        "NV or AN? >> ")
+
+        if secask == "nv":
+            Construct.age(Construct.noun_verb())
 
 
 class Generate():
@@ -139,16 +151,17 @@ class Construct():
     "by", "ford", "fell", "holm", "hurst", "ley", "combe", "den", "ton",
     "ham", "worth", "beck", "croft", "clough", "shaw", "wold", "thwaite",
     "rigg", "gate", "gill", "hollow", "kirk", "lough", "ness", "toft", "sike"]
-        selection = random.randrange(0, 1)
+        selection = random.randrange(0, 2)
 
         if selection == 0:
-            modification = random.randrange(0, 2)
+            modification = random.randrange(0, 3)
             index = random.randrange(len(constructedWord))
             secondIndex = index + 1
             print (index)
             print (secondIndex)
             if modification == 0:
                 # conflate
+                # if similar sound?
                 print ("conflate")
             elif modification == 1:
             # simplify
@@ -157,8 +170,10 @@ class Construct():
             # remove
                 print ("remove")
         elif selection == 1:
-            suffix = suffixes[random.randrange(0)]
+            suffix = random.choice(suffixes)
             constructedWord += suffix
+            
+            print (constructedWord)
             # elaboration            # nested if second rng run: it will decide whether it will conflate, or simplify, or remove
                     # else: it will be elaboration
 
