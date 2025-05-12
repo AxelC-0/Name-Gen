@@ -23,7 +23,7 @@ def main():
                         "NV or AN? >> ")
 
         if secask == "nv":
-            Construct.age(Construct.noun_verb())
+            Construct.age(Construct.noun_verb()) 
 
 
 class Generate():
@@ -161,6 +161,10 @@ class Construct():
             print (secondIndex)
             if modification == 0:
                 # conflate
+
+                for characters in constructedWord:
+                    if (constructedWord[characters] == "n" and constructedWord[characters + 1] == "b" or "p" or "f" or "v"):
+                        modifiedWord = constructedWord.replace(characters, "m")
                 # if similar sound?
                 print ("conflate")
             elif modification == 1:
