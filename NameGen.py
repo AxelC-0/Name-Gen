@@ -20,10 +20,12 @@ def main():
 
         secask = input ("Cool! There are a few opitons when it  comes to starting. \n \nYou can start with a NOUN-VERB, or an ADJ-NOUN base?"
                         "Which would you like to start with? " 
-                        "NV or AN? >> ")
+                        "NV or AN? >> ").strip().lower()
 
         if secask == "nv":
             Construct.age(Construct.noun_verb()) 
+    
+
 
 
 class Generate():
@@ -92,14 +94,14 @@ class Construct():
 
 
         nouns = ["house", "tree", "book", "computer", "phone", "table", "chair",
-    "man", "woman", "child", "friend", "teacher", "student", "city", "country", "school", "job",
-    "water", "food", "music", "movie", "game", "apple", "banana", "shirt", "shoe", "bag",
-    "money", "time", "day", "night", "year", "road", "river", "mountain", "ocean", "sun",
-    "moon", "star", "door", "window", "room", "family", "team", "store", "train", "plane", 
-    "fall", "helm", "reach", "mere", "forge", "rock", "holdt", "run", "watch", "march",
-    "shade", "wood", "vale", "water", "haven", "field", "rest", "hold", "pine", "moor",
-    "deep", "port", "vale", "watch", "hollow", "spear", "shade", "gate", "mere", "spire",
-    "moor", "reach", "watch", "mere", "wrath", "top", "rest", "stone", "reach", "field", "Wyrm", "Sky", "Crow", "Blight"]
+        "man", "woman", "child", "friend", "teacher", "student", "city", "country", "school", "job",
+        "water", "food", "music", "movie", "game", "apple", "banana", "shirt", "shoe", "bag",
+        "money", "time", "day", "night", "year", "road", "river", "mountain", "ocean", "sun",
+        "moon", "star", "door", "window", "room", "family", "team", "store", "train", "plane", 
+        "fall", "helm", "reach", "mere", "forge", "rock", "holdt", "run", "watch", "march",
+        "shade", "wood", "vale", "water", "haven", "field", "rest", "hold", "pine", "moor",
+        "deep", "port", "vale", "watch", "hollow", "spear", "shade", "gate", "mere", "spire",
+        "moor", "reach", "watch", "mere", "wrath", "top", "rest", "stone", "reach", "field", "Wyrm", "Sky", "Crow", "Blight"]
         
         verbs = ["run", "walk", "eat", "drink", "sleep", "write", "read", "speak", "listen", "see",
     "hear", "make", "do", "go", "come", "have", "be", "know", "think", "take",
@@ -133,9 +135,27 @@ class Construct():
         :type noun: list
         """
 
-    nouns = ["house", ]
+        nouns = ["house", "tree", "book", "computer", "phone", "table", "chair",
+        "man", "woman", "child", "friend", "teacher", "student", "city", "country", "school", "job",
+        "water", "food", "music", "movie", "game", "apple", "banana", "shirt", "shoe", "bag",
+        "money", "time", "day", "night", "year", "road", "river", "mountain", "ocean", "sun",
+        "moon", "star", "door", "window", "room", "family", "team", "store", "train", "plane", 
+        "fall", "helm", "reach", "mere", "forge", "rock", "holdt", "run", "watch", "march",
+        "shade", "wood", "vale", "water", "haven", "field", "rest", "hold", "pine", "moor",
+        "deep", "port", "vale", "watch", "hollow", "spear", "shade", "gate", "mere", "spire",
+        "moor", "reach", "watch", "mere", "wrath", "top", "rest", "stone", "reach", "field", "Wyrm", "Sky", "Crow", "Blight"]
 
-    adjectives = []
+        adjectives = [
+        "Ancient", "Forgotten", "Mystic", "Shadowed", "Cursed", "Sacred", "Fallen", "Dark", "Crystal", "Shimmering", "Burning",
+        "Frozen", "Silver", "Golden", "Twilight", "Duskworn", "Stormy", "Wyrmshadow", "Bloodied", "Iron", "Emerald",
+        "Obsidian", "Ebon", "Moonlit", "Sunken", "Hollow", "Thorned", "Runed", "Celestial", "Whispering","Feywild",]
+
+        chosenNoun = random.choice(nouns)
+        chosenAdj = random.choice(adjectives)
+        print(chosenAdj)
+        constructedWord = chosenAdj + chosenNoun
+        print (constructedWord)
+        return constructedWord
 
     def age(constructedWord):
 
@@ -145,17 +165,15 @@ class Construct():
             Simplification: Hard to pronounce sounds are removed
             Elaboration: Modifier words added to names to distinguish them from other similar names, 
                         or to add distinction in the form of adjectives
-            """
+        """
         
-        # Conflation:
-            #if certain number:
-        # planning
                     # run rng -> if certain number: it will run a letter change and select random letter combo next to eachother
         suffixes = ["hold", "moor", "mere", "heim", "dale", "burg", "stead", "wick", "thorpe",
     "by", "ford", "fell", "holm", "hurst", "ley", "combe", "den", "ton",
     "ham", "worth", "beck", "croft", "clough", "shaw", "wold", "thwaite",
     "rigg", "gate", "gill", "hollow", "kirk", "lough", "ness", "toft", "sike"]
         selection = random.randrange(0, 2)
+        modifiedWord = []
 
         if selection == 0:
             modification = random.randrange(0, 3)
@@ -169,11 +187,8 @@ class Construct():
 
                 for idx in range(len(constructedWord)):
                     if idx < len(constructedWord) - 1:
-                        if constructedWord[idx] == "n" and constructedWord[idx + 1] == "b"
-                        or constructedWord[idx + 1] == "p" 
-                        or constructedWord[idx + 1] == "f" 
-                        or constructedWord[idx + 1] == "v":
-                        modifiedWord = constructedWord.replace("n", "m")
+                        if constructedWord[idx] == "n" and constructedWord[idx + 1] == "b" or constructedWord[idx + 1] == "p" or constructedWord[idx + 1] == "f" or constructedWord[idx + 1] == "v":
+                            modifiedWord = constructedWord.replace(idx, "m")
                 # if similar sound?
                 print ("conflate")
                 print (modifiedWord)
