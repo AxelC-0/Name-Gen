@@ -14,7 +14,7 @@ def main():
 
     if ask == "generate":
 
-        Generate.from_the_letters()
+        print(Generate.from_the_letters().strip().capitalize())
     elif ask == "construct":
 
         secask = input ("Cool! There are a few opitons when it  comes to starting. \n \nYou can start with a NOUN-VERB, or an ADJ-NOUN base?"
@@ -22,9 +22,9 @@ def main():
                         "NV or AN? >> ").strip().lower()
 
         if secask == "nv":
-            Construct.age(Construct.noun_verb())
+            print(Construct.age(Construct.noun_verb()).strip().capitalize())
         elif secask == "an":
-            Construct.age(Construct.adj_noun())
+            print(Construct.age(Construct.adj_noun()).strip().capitalize())
     
 
 
@@ -58,8 +58,8 @@ class Generate():
                       "V", "W",  "X", "Y", "Z"]
         Holding = []
         Length = random.randint(2, 8)
-        print (Length)
-        print (random.randrange(2, 8))
+        #print (Length)
+        #print (random.randrange(2, 8))
 
         # random number to determine positioning of vowels and consonants, 
         # then random number deciding which letters its going to place there
@@ -67,7 +67,7 @@ class Generate():
         word_skel = []
         for idx in range(randomlength):
             word_skel.append(random.randrange(1, 10))
-            print (word_skel)
+            #print (word_skel)
         for idx in range(len(word_skel)):
             if idx % 2 != 0:
                 word_skel[idx] = Consonants[random.randrange(1, 21)]
@@ -75,7 +75,8 @@ class Generate():
                 word_skel[idx] = Vowels[random.randrange(1, 5)]
         
         word = "".join(word_skel)
-        print (word)
+        #print (word)
+        return word
 
 
 
@@ -119,9 +120,9 @@ class Construct():
         #chosenVerb = verbs[random.randrange()]
         chosenNoun = random.choice(nouns)
         chosenVerb = random.choice(verbs)
-        print(chosenVerb)
+        #print(chosenVerb)
         constructedWord = chosenNoun + chosenVerb
-        print (constructedWord)
+        #print (constructedWord)
         return constructedWord
 
 
@@ -153,7 +154,7 @@ class Construct():
 
         chosenNoun = random.choice(nouns)
         chosenAdj = random.choice(adjectives)
-        print(chosenAdj)
+        #print(chosenAdj)
         constructedWord = chosenAdj + chosenNoun
         print (constructedWord)
         return constructedWord
@@ -179,13 +180,13 @@ class Construct():
         counter = 0
         while counter <= 1:
             counter += 1
-            print (counter)
+            #print (counter)
             selection = random.randrange(0, 2)
             modifiedWord = constructedWord
 
             if selection == 0:
                 modification = random.randrange(0, 3)
-                print (f"mod is:  {modification}")
+                #print (f"mod is:  {modification}")
                 modification = 1
                 if modification == 0:
                     # conflate
@@ -195,10 +196,10 @@ class Construct():
                             if constructedWord[idx] == "n" and constructedWord[idx + 1] == "b" or constructedWord[idx + 1] == "p" or constructedWord[idx + 1] == "f" or constructedWord[idx + 1] == "v":
                                 modifiedWord = constructedWord.replace("n", "m",)
                     # if similar sound?
-                    print ("conflate")
-                    print (modifiedWord)
+                    #print ("conflate")
+                    #print (modifiedWord)
                 if modification == 1:
-                    print (constructedWord)
+                    #print (constructedWord)
                     for idx in range(len(constructedWord)):
                         if idx < len(constructedWord) - 1:
                             if constructedWord[idx] == "p" and constructedWord[idx + 1] == "h":
@@ -217,7 +218,7 @@ class Construct():
                                 modifiedWord = constructedWord.replace("eh", "e")
                             if constructedWord[idx] == "nde":
                                 modifiedWord = constructedWord.replace("nde", "ne")
-                        print (".")
+                        # (".")
                     return modifiedWord
 
                     print ("Simplify")
@@ -227,8 +228,9 @@ class Construct():
             elif selection == 1:
                 suffix = random.choice(suffixes)
                 constructedWord += suffix
+        return modifiedWord.strip().capitalize()
 
-                print (constructedWord)
+                #print (constructedWord)
             # elaboration            # nested if second rng run: it will decide whether it will conflate, or simplify, or remove
                     # else: it will be elaboration
 
