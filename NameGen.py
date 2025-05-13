@@ -1,6 +1,5 @@
 import math
 import random
-import time
 
 
 
@@ -23,7 +22,9 @@ def main():
                         "NV or AN? >> ").strip().lower()
 
         if secask == "nv":
-            Construct.age(Construct.noun_verb()) 
+            Construct.age(Construct.noun_verb())
+        elif secask == "an":
+            Construct.age(Construct.adj_noun())
     
 
 
@@ -104,15 +105,15 @@ class Construct():
         "moor", "reach", "watch", "mere", "wrath", "top", "rest", "stone", "reach", "field", "Wyrm", "Sky", "Crow", "Blight"]
         
         verbs = ["run", "walk", "eat", "drink", "sleep", "write", "read", "speak", "listen", "see",
-    "hear", "make", "do", "go", "come", "have", "be", "know", "think", "take",
-    "give", "work", "play", "study", "learn", "drive", "ride", "buy", "sell", "build",
-    "cook", "clean", "watch", "open", "close", "start", "stop", "jump", "sit", "stand",
-    "grow", "draw", "paint", "sing", "dance", "teach", "help", "move", "throw", "catch", 
-    "Dagger", "Wind", "Storm", "Shadow", "Iron", "Raven", "Frost",
-    "Red", "Moon", "Drift", "Bright", "Gold", "Thorn", "Hollow",
-    "Dark", "Ember", "Skull", "Mist", "Rime", "Fall", "Sun", "Brim", "Night", "Gren",
-    "Oak", "Steel", "Fallow", "Howl", "Crag", "Fire", "Dust",
-    "Ice", "Thunder"]
+        "hear", "make", "do", "go", "come", "have", "be", "know", "think", "take",
+        "give", "work", "play", "study", "learn", "drive", "ride", "buy", "sell", "build",
+        "cook", "clean", "watch", "open", "close", "start", "stop", "jump", "sit", "stand",
+        "grow", "draw", "paint", "sing", "dance", "teach", "help", "move", "throw", "catch", 
+        "Dagger", "Wind", "Storm", "Shadow", "Iron", "Raven", "Frost",
+        "Red", "Moon", "Drift", "Bright", "Gold", "Thorn", "Hollow",
+        "Dark", "Ember", "Skull", "Mist", "Rime", "Fall", "Sun", "Brim", "Night", "Gren",
+        "Oak", "Steel", "Fallow", "Howl", "Crag", "Fire", "Dust",
+        "Ice", "Thunder"]
         
         #chosenNoun = nouns[random.randrange()]
         #chosenVerb = verbs[random.randrange()]
@@ -169,40 +170,65 @@ class Construct():
         
                     # run rng -> if certain number: it will run a letter change and select random letter combo next to eachother
         suffixes = ["hold", "moor", "mere", "heim", "dale", "burg", "stead", "wick", "thorpe",
-    "by", "ford", "fell", "holm", "hurst", "ley", "combe", "den", "ton",
-    "ham", "worth", "beck", "croft", "clough", "shaw", "wold", "thwaite",
-    "rigg", "gate", "gill", "hollow", "kirk", "lough", "ness", "toft", "sike"]
-        selection = random.randrange(0, 2)
-        modifiedWord = []
+        "by", "ford", "fell", "holm", "hurst", "ley", "combe", "den", "ton",
+        "ham", "worth", "beck", "croft", "clough", "shaw", "wold", "thwaite",
+        "rigg", "gate", "gill", "hollow", "kirk", "lough", "ness", "toft", "sike"]
 
-        if selection == 0:
-            modification = random.randrange(0, 3)
-            index = random.randrange(len(constructedWord))
-            secondIndex = index + 1
-            print (index)
-            print (secondIndex)
-            modification = 0 # don't forget to delete this
-            if modification == 0:
-                # conflate
+        preplace =["f", "v", "b"]
+        dreplace = ["th", "z", "s"]
+        counter = 0
+        while counter <= 1:
+            counter += 1
+            print (counter)
+            selection = random.randrange(0, 2)
+            modifiedWord = constructedWord
 
-                for idx in range(len(constructedWord)):
-                    if idx < len(constructedWord) - 1:
-                        if constructedWord[idx] == "n" and constructedWord[idx + 1] == "b" or constructedWord[idx + 1] == "p" or constructedWord[idx + 1] == "f" or constructedWord[idx + 1] == "v":
-                            modifiedWord = constructedWord.replace(idx, "m")
-                # if similar sound?
-                print ("conflate")
-                print (modifiedWord)
-            elif modification == 1:
-            # simplifyc
-                print ("Simplify")
-            elif modification == 2:
-            # remove
-                print ("remove")
-        elif selection == 1:
-            suffix = random.choice(suffixes)
-            constructedWord += suffix
-            
-            print (constructedWord)
+            if selection == 0:
+                modification = random.randrange(0, 3)
+                print (f"mod is:  {modification}")
+                modification = 1
+                if modification == 0:
+                    # conflate
+
+                    for idx in range(len(constructedWord)):
+                        if idx < len(constructedWord) - 1:
+                            if constructedWord[idx] == "n" and constructedWord[idx + 1] == "b" or constructedWord[idx + 1] == "p" or constructedWord[idx + 1] == "f" or constructedWord[idx + 1] == "v":
+                                modifiedWord = constructedWord.replace("n", "m",)
+                    # if similar sound?
+                    print ("conflate")
+                    print (modifiedWord)
+                if modification == 1:
+                    print (constructedWord)
+                    for idx in range(len(constructedWord)):
+                        if idx < len(constructedWord) - 1:
+                            if constructedWord[idx] == "p" and constructedWord[idx + 1] == "h":
+                                modifiedWord = constructedWord.replace("ph", "f")
+                            if constructedWord[idx] == "r":
+                                modifiedWord = constructedWord.replace("r", "l")
+                            if constructedWord[idx] == "p":
+                                modifiedWord = constructedWord.replace("p", random.choice(preplace))
+                            if constructedWord[idx] == "d":
+                                modifiedWord = constructedWord.replace("d", random.choice(dreplace))
+                            if constructedWord[idx] == "v":
+                                modifiedWord = constructedWord.replace("v", "w")
+                            if constructedWord[idx] == "oo":
+                                modifiedWord = constructedWord.replace("oo", "u")
+                            if constructedWord[idx] == "eh":
+                                modifiedWord = constructedWord.replace("eh", "e")
+                            if constructedWord[idx] == "nde":
+                                modifiedWord = constructedWord.replace("nde", "ne")
+                        print (".")
+                    return modifiedWord
+
+                    print ("Simplify")
+                elif modification == 2:
+                # remove
+                    print ("remove")
+            elif selection == 1:
+                suffix = random.choice(suffixes)
+                constructedWord += suffix
+
+                print (constructedWord)
             # elaboration            # nested if second rng run: it will decide whether it will conflate, or simplify, or remove
                     # else: it will be elaboration
 
